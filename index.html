@@ -415,9 +415,72 @@
             border-top: 1px solid rgba(255,255,255,0.05);
             font-size: 0.85rem;
             color: #6b7a90;
+            position: relative;
         }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* --- SÜRÜM MENÜSÜ (MODAL) CSS --- */
+        .version-link {
+            color: #8c9bb3;
+            text-decoration: underline;
+            font-size: 0.75rem;
+            margin-top: 10px;
+            display: inline-block;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .version-link:hover { color: var(--secondary); }
+
+        .version-modal {
+            display: none; /* Varsayılan olarak gizli */
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .version-modal-content {
+            background-color: white;
+            color: var(--dark);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 550px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            animation: fadeInModal 0.3s ease-out;
+            text-align: left;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-btn:hover { color: var(--dark); }
+
+        .version-modal-content h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            color: var(--primary);
+        }
+        .version-modal-content ul { list-style: none; padding-left: 0; max-height: 350px; overflow-y: auto; }
+        .version-modal-content li { font-size: 0.9rem; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; line-height: 1.5; }
+        .version-modal-content li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .version-modal-content strong { color: var(--primary); font-weight: 600; display: inline-block; width: 65px; }
 
         /* --- MOBİL UYUMLULUK (RESPONSIVE) KODLARI --- */
         @media (max-width: 1024px) {
@@ -616,14 +679,49 @@
         </div>
         
         <div class="footer-bottom">
-            &copy; 2026 Küçükçekmece Gençlik Merkezi | Tasarım ve Geliştirme: BİLİŞİM SINIFI PROJE EKİBİ
+            &copy; 2026 Küçükçekmece Gençlik Merkezi | Tasarım ve Geliştirme: BİLİŞİM SINIFI PROJE EKİBİ<br>
+            <a onclick="openVersionModal(event)" class="version-link">Sürüm v1.0.5 Logları (Geliştirme Geçmişi)</a>
         </div>
     </footer>
 
+    <div id="versionModal" class="version-modal">
+        <div class="version-modal-content">
+            <span class="close-btn" onclick="closeVersionModal()">&times;</span>
+            <h2>Proje Geliştirme Logları</h2>
+            <ul>
+                <li><strong>v1.0.5:</strong> Sürüm menüsü (changelog) eklendi. Hatıra defteri hizmet kartlarından tamamen kaldırıldı. Alt bilgi kurum adı "Müdürlük" olarak güncellendi. Üst menü 3 öğeye düşürüldü.</li>
+                <li><strong>v1.0.4:</strong> Masaüstü PC görünümünde menülerin alt alta kayma sorunu çözüldü, nowrap özelliği eklendi. Mobil için hamburger menü entegrasyonu sağlandı. Logo dosyası kucukcekmece_dil_logo.png olarak güncellendi.</li>
+                <li><strong>v1.0.3:</strong> Font Awesome kütüphanesi v6.5.1'e yükseltilerek X (Twitter) logosu görünür kılındı. İletişim adresleri ve dahili numara (8920) revize edildi.</li>
+                <li><strong>v1.0.2:</strong> Sayfa sonuna özel kurumsal footer eklendi. Ana menü sağ üst alana sosyal ikonlar ve arama çubuğu yerleştirildi.</li>
+                <li><strong>v1.0.1:</strong> Duyuru çubuğu eklendi ve 19 Mayıs kutlama metni girildi.</li>
+                <li><strong>v1.0.0:</strong> İlk ana iskelet, hizmet kartları ve temel renk değişkenleri oluşturuldu.</li>
+            </ul>
+        </div>
+    </div>
+
     <script>
+        // Mobil Menü Aç/Kapat
         function toggleMenu() {
             var menu = document.getElementById("mobileMenu");
             menu.classList.toggle("active");
+        }
+
+        // Versiyon Modalı Aç/Kapat
+        function openVersionModal(e) {
+            e.preventDefault();
+            document.getElementById('versionModal').style.display = 'flex';
+        }
+
+        function closeVersionModal() {
+            document.getElementById('versionModal').style.display = 'none';
+        }
+
+        // Modal açıkken dış siyah alana tıklanınca kapatma özelliği
+        window.onclick = function(event) {
+            var modal = document.getElementById('versionModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 
