@@ -47,7 +47,7 @@
             line-height: 1.6;
         }
 
-        /* --- ÜST MENÜ (NAVBAR) --- */
+        /* --- ÜST MENÜ (NAVBAR) MASAÜSTÜ --- */
         nav {
             background-color: white;
             padding: 10px 5%;
@@ -64,7 +64,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
         }
 
         .logo-container {
@@ -74,9 +73,8 @@
             text-decoration: none;
         }
 
-        /* LOGO GÜNCELLENDİ */
         .logo-img { height: 60px; width: auto; }
-        .logo-text { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+        .logo-text { font-size: 1.2rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
 
         .mobile-toggle {
             display: none;
@@ -87,8 +85,10 @@
             cursor: pointer;
         }
 
+        /* PC'de menülerin yan yana durması için kesin kurallar */
         .nav-collapse {
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             flex: 1;
@@ -100,19 +100,34 @@
             align-items: center;
         }
 
-        .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; margin-bottom: 0; }
+        .nav-links { 
+            list-style: none; 
+            display: flex; 
+            flex-direction: row; 
+            gap: 25px; 
+            align-items: center; 
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            display: inline-block;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: color 0.3s;
+            white-space: nowrap; /* Metinlerin PC'de asla alt alta geçmemesini sağlar */
         }
         .nav-links a:hover { color: var(--primary); }
 
         /* --- ARAMA VE SOSYAL İKONLAR --- */
         .nav-right {
             display: flex;
+            flex-direction: row;
             align-items: center;
             gap: 20px;
         }
@@ -139,6 +154,7 @@
 
         .social-icons-top {
             display: flex;
+            flex-direction: row;
             gap: 12px;
             align-items: center;
         }
@@ -405,8 +421,8 @@
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- MOBİL UYUMLULUK (RESPONSIVE) KODLARI GÜNCELLENDİ --- */
-        @media (max-width: 992px) {
+        /* --- MOBİL UYUMLULUK (RESPONSIVE) KODLARI --- */
+        @media (max-width: 1024px) {
             nav {
                 flex-direction: column;
                 align-items: flex-start;
@@ -415,23 +431,25 @@
             .nav-header { width: 100%; }
             .mobile-toggle { display: block; }
             
-            /* Menü varsayılan olarak kapalı */
+            /* Menü mobilde varsayılan olarak kapalıdır */
             .nav-collapse {
-                display: none;
-                flex-direction: column;
+                display: none !important; 
+                flex-direction: column !important; /* Mobilde alt alta sıralansın */
                 width: 100%;
                 margin-left: 0;
                 padding-top: 20px;
                 gap: 20px;
             }
-            /* Menü açıldığında aktif olacak sınıf */
-            .nav-collapse.active { display: flex; }
             
-            .nav-center, .nav-right { flex-direction: column; width: 100%; align-items: flex-start; }
-            .nav-links { flex-direction: column; align-items: flex-start; gap: 15px; width: 100%; }
-            .nav-links li { width: 100%; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+            /* JavaScript tetiklediğinde menüyü açar */
+            .nav-collapse.active { display: flex !important; }
             
-            .nav-right { gap: 15px; padding-top: 10px; }
+            .nav-center, .nav-right { flex-direction: column !important; width: 100%; align-items: flex-start; }
+            .nav-links { flex-direction: column !important; align-items: flex-start; gap: 15px; width: 100%; }
+            .nav-links li { width: 100%; border-bottom: 1px solid #eee; padding-bottom: 10px; display: block; }
+            .nav-links a { white-space: normal; } /* Mobilde metinler serbest kalabilir */
+            
+            .nav-right { gap: 15px; padding-top: 10px; flex-direction: column !important; }
             .search-box { width: 100%; max-width: 300px; justify-content: space-between; }
             .search-box input { width: 100%; }
             .social-icons-top { margin-top: 10px; }
@@ -445,7 +463,7 @@
             .hero p { font-size: 1rem; margin-bottom: 25px; }
             .btn-primary { padding: 14px 35px; font-size: 1rem; }
             
-            .announcement-title { display: none; } /* Dar ekranda kayan yazının tamamı görünsün */
+            .announcement-title { display: none; }
             .section-title { font-size: 2rem; margin: 50px 0 30px; }
             
             footer { padding: 50px 5% 20px; margin-top: 60px; }
