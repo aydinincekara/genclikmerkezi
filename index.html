@@ -85,19 +85,17 @@
             cursor: pointer;
         }
 
-        /* PC'de menülerin yan yana durması için kesin kurallar */
         .nav-collapse {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
             flex: 1;
-            margin-left: 40px;
         }
 
         .nav-center {
             display: flex;
             align-items: center;
+            margin: 0 auto; 
         }
 
         .nav-links { 
@@ -120,7 +118,7 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: color 0.3s;
-            white-space: nowrap; /* Metinlerin PC'de asla alt alta geçmemesini sağlar */
+            white-space: nowrap;
         }
         .nav-links a:hover { color: var(--primary); }
 
@@ -431,25 +429,24 @@
             .nav-header { width: 100%; }
             .mobile-toggle { display: block; }
             
-            /* Menü mobilde varsayılan olarak kapalıdır */
             .nav-collapse {
                 display: none !important; 
-                flex-direction: column !important; /* Mobilde alt alta sıralansın */
+                flex-direction: column !important; 
                 width: 100%;
                 margin-left: 0;
                 padding-top: 20px;
                 gap: 20px;
             }
             
-            /* JavaScript tetiklediğinde menüyü açar */
             .nav-collapse.active { display: flex !important; }
             
-            .nav-center, .nav-right { flex-direction: column !important; width: 100%; align-items: flex-start; }
+            .nav-center { margin: 0; width: 100%; flex-direction: column !important; align-items: flex-start; }
+            .nav-right { flex-direction: column !important; width: 100%; align-items: flex-start; gap: 15px; padding-top: 10px; }
+            
             .nav-links { flex-direction: column !important; align-items: flex-start; gap: 15px; width: 100%; }
             .nav-links li { width: 100%; border-bottom: 1px solid #eee; padding-bottom: 10px; display: block; }
-            .nav-links a { white-space: normal; } /* Mobilde metinler serbest kalabilir */
+            .nav-links a { white-space: normal; } 
             
-            .nav-right { gap: 15px; padding-top: 10px; flex-direction: column !important; }
             .search-box { width: 100%; max-width: 300px; justify-content: space-between; }
             .search-box input { width: 100%; }
             .social-icons-top { margin-top: 10px; }
@@ -489,9 +486,8 @@
             <div class="nav-center">
                 <ul class="nav-links">
                     <li><a href="index.html">Ana Sayfa</a></li>
-                    <li><a href="etkinlikler.html">Etkinlikler & Geziler</a></li>
-                    <li><a href="hatiradefteri.html">Hatıra Defteri</a></li>
-                    <li><a href="kayitveiletisim.html" style="color: var(--primary); font-weight: 700;">Kayıt & İletişim</a></li>
+                    <li><a href="duyurular.html">Duyurular & Haberler</a></li>
+                    <li><a href="kayitveiletisim.html">Kayıt & İletişim</a></li>
                 </ul>
             </div>
 
@@ -559,12 +555,6 @@
                 <p>Turnuvalar, geziler ve sosyal projeler.</p>
             </a>
 
-            <a href="hatiradefteri.html" class="card">
-                <i class="fa-solid fa-book-open"></i>
-                <h3>Hatıra Defteri</h3>
-                <p>Gençlerin merkezdeki anıları ve paylaşımları.</p>
-            </a>
-
             <a href="#" class="card new-menu">
                 <i class="fa-solid fa-plus-circle"></i>
                 <h3>Yeni Menü 1</h3>
@@ -596,7 +586,7 @@
                     </div>
                     <div class="brand-text">
                         <h2>KÜÇÜKÇEKMECE BELEDİYESİ</h2>
-                        <h3>GENÇLİK VE SPOR MERKEZİ</h3>
+                        <h3>GENÇLİK VE SPOR MÜDÜRLÜĞÜ</h3>
                     </div>
                 </div>
                 <p>Küçükçekmece'nin gençliği için eğitim, kültür, sanat ve teknoloji alanlarında kapsamlı hizmetler sunmaktayız.</p>
