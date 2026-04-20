@@ -60,6 +60,13 @@
             z-index: 1000;
         }
 
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
         .logo-container {
             display: flex;
             align-items: center;
@@ -67,13 +74,30 @@
             text-decoration: none;
         }
 
+        /* LOGO GÜNCELLENDİ */
         .logo-img { height: 60px; width: auto; }
         .logo-text { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .nav-collapse {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            margin-left: 40px;
+        }
 
         .nav-center {
             display: flex;
             align-items: center;
-            gap: 30px;
         }
 
         .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; margin-bottom: 0; }
@@ -165,7 +189,7 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- HERO BÖLÜM --- */
+        /* --- HERO BÖLÜMÜ --- */
         .hero {
             position: relative;
             height: 80vh;
@@ -381,39 +405,89 @@
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* --- MOBİL UYUMLULUK (RESPONSIVE) KODLARI GÜNCELLENDİ --- */
         @media (max-width: 992px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 5%;
+            }
+            .nav-header { width: 100%; }
+            .mobile-toggle { display: block; }
+            
+            /* Menü varsayılan olarak kapalı */
+            .nav-collapse {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+                padding-top: 20px;
+                gap: 20px;
+            }
+            /* Menü açıldığında aktif olacak sınıf */
+            .nav-collapse.active { display: flex; }
+            
+            .nav-center, .nav-right { flex-direction: column; width: 100%; align-items: flex-start; }
+            .nav-links { flex-direction: column; align-items: flex-start; gap: 15px; width: 100%; }
+            .nav-links li { width: 100%; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+            
+            .nav-right { gap: 15px; padding-top: 10px; }
+            .search-box { width: 100%; max-width: 300px; justify-content: space-between; }
+            .search-box input { width: 100%; }
+            .social-icons-top { margin-top: 10px; }
+
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .nav-center { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { height: 70vh; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; margin-bottom: 25px; }
+            .btn-primary { padding: 14px 35px; font-size: 1rem; }
+            
+            .announcement-title { display: none; } /* Dar ekranda kayan yazının tamamı görünsün */
+            .section-title { font-size: 2rem; margin: 50px 0 30px; }
+            
+            footer { padding: 50px 5% 20px; margin-top: 60px; }
+            .footer-brand .brand-header { flex-direction: column; align-items: flex-start; }
+            .footer-brand .brand-text h2 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/K%C3%BC%C3%A7%C3%BCk%C3%A7ekmece_Belediyesi_logo.svg" alt="Logo" class="logo-img">
-            <span class="logo-text">Gençlik Merkezi</span>
-        </a>
-        
-        <div class="nav-center">
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="etkinlikler.html">Etkinlikler & Geziler</a></li>
-                <li><a href="hatiradefteri.html">Hatıra Defteri</a></li>
-                <li><a href="kayitveiletisim.html" style="color: var(--primary); font-weight: 700;">Kayıt & İletişim</a></li>
-            </ul>
+        <div class="nav-header">
+            <a href="index.html" class="logo-container">
+                <img src="kucukcekmece_dil_logo.png" alt="Logo" class="logo-img">
+                <span class="logo-text">Gençlik Merkezi</span>
+            </a>
+            <button class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-
-        <div class="nav-right">
-            <div class="search-box">
-                <input type="text" placeholder="Sitede Ara...">
-                <i class="fa-solid fa-magnifying-glass"></i>
+        
+        <div class="nav-collapse" id="mobileMenu">
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="etkinlikler.html">Etkinlikler & Geziler</a></li>
+                    <li><a href="hatiradefteri.html">Hatıra Defteri</a></li>
+                    <li><a href="kayitveiletisim.html" style="color: var(--primary); font-weight: 700;">Kayıt & İletişim</a></li>
+                </ul>
             </div>
-            <div class="social-icons-top">
-                <a href="#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Sitede Ara...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="social-icons-top">
+                    <a href="#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
         </div>
     </nav>
@@ -537,6 +611,13 @@
             &copy; 2026 Küçükçekmece Gençlik Merkezi | Tasarım ve Geliştirme: BİLİŞİM SINIFI PROJE EKİBİ
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            menu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>
