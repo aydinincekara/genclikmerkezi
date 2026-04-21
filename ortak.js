@@ -1,4 +1,3 @@
-// ortak.js
 document.addEventListener("DOMContentLoaded", function() {
     // Header'ı yükle
     fetch("header.html")
@@ -15,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 });
 
-// Mobil Menü Fonksiyonu (Global)
+// Mobil Menü Aç/Kapat (Global)
 window.toggleMenu = function() {
     var menu = document.getElementById("mobileMenu");
     if(menu) menu.classList.toggle("active");
 };
 
-// Versiyon Modalı Fonksiyonları (Global)
+// Versiyon Modalı Aç/Kapat (Global)
 window.openVersionModal = function(e) {
     e.preventDefault();
     var modal = document.getElementById('versionModal');
