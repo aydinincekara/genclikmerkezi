@@ -8,7 +8,6 @@
       gtag('js', new Date());
       gtag('config', 'G-P1QPERL223');
     </script>
-
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -22,174 +21,30 @@
     <title>Küçükçekmece Gençlik Merkezi | Sanat ve Beceri Atölyeleri</title>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-        :root {
-            --primary: #0a428c;
-            --primary-light: #e9f2fb;
-            --secondary: #d4af37;
-            --dark: #2c3e50;
-            --light: #f4f7f6;
-            --footer-bg: #0b1f3f;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-
-        /* --- ÜST MENÜ (NAVBAR) --- */
-        nav { background-color: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .nav-header { display: flex; justify-content: space-between; align-items: center; }
-        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; }
-        .logo-text { font-size: 1.2rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
-        .mobile-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: var(--primary); cursor: pointer; }
-
-        .nav-collapse { display: flex; flex-direction: row; align-items: center; flex: 1; }
-        .nav-center { display: flex; align-items: center; margin: 0 auto; }
-        .nav-links { list-style: none; display: flex; flex-direction: row; gap: 25px; align-items: center; margin: 0; padding: 0; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; white-space: nowrap; }
-        .nav-links a:hover { color: var(--primary); }
-
-        .nav-right { display: flex; flex-direction: row; align-items: center; gap: 20px; }
-        .search-box { display: flex; align-items: center; background: var(--light); border-radius: 20px; padding: 5px 15px; border: 1px solid #ddd; }
-        .search-box input { border: none; background: transparent; outline: none; padding: 5px; font-size: 0.85rem; width: 120px; transition: width 0.3s; }
-        .search-box i { color: #888; font-size: 0.9rem; cursor: pointer; }
-
-        .social-icons-top { display: flex; flex-direction: row; gap: 12px; align-items: center; }
-        .social-icons-top a { color: var(--dark); font-size: 1.1rem; transition: all 0.3s; }
-        .social-icons-top a:hover { color: var(--primary); transform: translateY(-2px); }
-
-        /* --- DUYURU BARI --- */
-        .announcement-bar { background-color: var(--primary-light); color: var(--primary); padding: 10px 5%; display: flex; align-items: center; font-size: 0.95rem; font-weight: 500; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .announcement-title { background-color: var(--primary); color: white; padding: 4px 15px; border-radius: 4px; margin-right: 15px; white-space: nowrap; z-index: 2; box-shadow: 2px 0 5px rgba(0,0,0,0.05); font-weight: 600; }
-        .marquee { flex: 1; overflow: hidden; white-space: nowrap; }
-        .marquee p { display: inline-block; padding-left: 100%; animation: marquee 25s linear infinite; }
-        .marquee p i { color: var(--secondary); margin: 0 10px; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-
-        /* --- İÇERİK ALANI --- */
-        .page-content { flex: 1; padding: 60px 5%; max-width: 1300px; margin: 0 auto; width: 100%; }
-        .page-header { text-align: center; margin-bottom: 60px; }
+        /* BU SAYFAYA ÖZEL ATÖLYE KARTI TASARIMI */
+        .page-header { text-align: center; margin: 60px 0 40px; padding: 0 5%; }
         .page-header h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
         .page-header p { font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto; line-height: 1.8; }
 
-        .workshop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .workshop-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; border: 1px solid #eee; }
-        .workshop-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(10, 66, 140, 0.15); border-color: var(--primary-light); }
+        .workshop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 5%; max-width: 1300px; margin: 0 auto 80px; }
+        .workshop-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s ease; display: flex; flex-direction: column; border: 1px solid #eee; }
+        .workshop-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(10, 66, 140, 0.1); border-color: var(--primary-light); }
+        
         .workshop-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 4px solid var(--secondary); }
+        
         .workshop-info { padding: 25px; flex: 1; display: flex; flex-direction: column; }
         .workshop-info h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 10px; font-weight: 700; }
-        .workshop-info p { font-size: 0.95rem; color: #555; flex: 1; margin-bottom: 20px; }
-        .btn-outline { align-self: flex-start; padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; }
-        .btn-outline:hover { background: var(--primary); color: white; }
-
-        /* --- FOOTER --- */
-        footer { background-color: var(--footer-bg); color: white; padding: 70px 5% 30px; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1300px; margin: 0 auto; }
-        .footer-brand .brand-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-        .footer-brand .brand-icon { background-color: var(--secondary); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--footer-bg); }
-        .footer-brand .brand-text h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 2px; color: white; }
-        .footer-brand .brand-text h3 { font-size: 0.95rem; font-weight: 400; color: var(--secondary); letter-spacing: 1px; }
-        .footer-brand p { color: #9ba4b5; font-size: 0.95rem; line-height: 1.7; margin-bottom: 25px; max-width: 85%; }
-        .footer-socials { display: flex; gap: 12px; }
-        .footer-socials a { background-color: rgba(255, 255, 255, 0.1); color: #d1d8e0; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; transition: all 0.3s; }
-        .footer-socials a:hover { background-color: var(--secondary); color: var(--footer-bg); transform: translateY(-3px); }
-        .footer-links h4 { color: white; font-size: 1.2rem; margin-bottom: 25px; position: relative; padding-bottom: 10px; }
-        .footer-links h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background-color: var(--secondary); }
-        .footer-links ul { list-style: none; }
-        .footer-links ul li { margin-bottom: 15px; }
-        .footer-links ul li a { color: #9ba4b5; text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 10px; }
-        .footer-links ul li a:hover { color: var(--secondary); }
-        .footer-links ul li a i { font-size: 0.8rem; color: var(--secondary); }
-        .footer-contact p { color: #9ba4b5; display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; font-size: 0.95rem; }
-        .footer-contact p i { color: var(--secondary); margin-top: 4px; font-size: 1.1rem; }
-        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: #6b7a90; position: relative; }
-
-        /* --- SÜRÜM MENÜSÜ (MODAL) --- */
-        .version-link { color: #8c9bb3; text-decoration: underline; font-size: 0.75rem; margin-top: 10px; display: inline-block; transition: color 0.3s; cursor: pointer; }
-        .version-link:hover { color: var(--secondary); }
-        .version-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
-        .version-modal-content { background-color: white; color: var(--dark); padding: 30px; border-radius: 10px; max-width: 550px; width: 90%; position: relative; box-shadow: 0 5px 30px rgba(0,0,0,0.3); animation: fadeInModal 0.3s ease-out; text-align: left; }
-        @keyframes fadeInModal { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        .close-btn { color: #aaa; position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close-btn:hover { color: var(--dark); }
-        .version-modal-content h2 { font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; color: var(--primary); }
-        .version-modal-content ul { list-style: none; padding-left: 0; max-height: 350px; overflow-y: auto; }
-        .version-modal-content li { font-size: 0.9rem; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; line-height: 1.5; }
-        .version-modal-content strong { color: var(--primary); font-weight: 600; display: inline-block; width: 65px; }
-
-        @media (max-width: 1024px) {
-            nav { flex-direction: column; align-items: flex-start; padding: 15px 5%; }
-            .nav-header { width: 100%; }
-            .mobile-toggle { display: block; }
-            .nav-collapse { display: none !important; flex-direction: column !important; width: 100%; margin-left: 0; padding-top: 20px; gap: 20px; }
-            .nav-collapse.active { display: flex !important; }
-            .nav-center { margin: 0; width: 100%; flex-direction: column !important; align-items: flex-start; }
-            .nav-right { flex-direction: column !important; width: 100%; align-items: flex-start; gap: 15px; padding-top: 10px; }
-            .nav-links { flex-direction: column !important; align-items: flex-start; gap: 15px; width: 100%; }
-            .nav-links li { width: 100%; border-bottom: 1px solid #eee; padding-bottom: 10px; display: block; }
-            .search-box { width: 100%; max-width: 300px; justify-content: space-between; }
-            .social-icons-top { margin-top: 10px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .announcement-title { display: none; }
-            footer { padding: 50px 5% 20px; margin-top: 60px; }
-            .footer-brand .brand-header { flex-direction: column; align-items: flex-start; }
-            .page-content { padding: 30px 5%; }
-            .page-header h1 { font-size: 2rem; }
-        }
+        .workshop-info p { font-size: 0.95rem; color: #555; flex: 1; margin: 0; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-header">
-            <a href="index.html" class="logo-container">
-                <img src="kucukcekmece_dil_logo.png" alt="Logo" class="logo-img">
-                <span class="logo-text">Gençlik Merkezi</span>
-            </a>
-            <button class="mobile-toggle" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-        
-        <div class="nav-collapse" id="mobileMenu">
-            <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="index.html">Ana Sayfa</a></li>
-                    <li><a href="duyurular.html">Duyurular & Haberler</a></li>
-                    <li><a href="kayitveiletisim.html">Kayıt & İletişim</a></li>
-                </ul>
-            </div>
+    <div id="header-placeholder"></div>
 
-            <div class="nav-right">
-                <div class="search-box">
-                    <input type="text" placeholder="Sitede Ara...">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <div class="social-icons-top">
-                    <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="announcement-bar">
-        <span class="announcement-title"><i class="fa-solid fa-bullhorn"></i> Duyurular</span>
-        <div class="marquee">
-            <p>19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramınız Kutlu Olsun! <i class="fa-solid fa-star"></i> Gençlik Merkezimizde düzenlenecek olan teknoloji ve sanat sergimize tüm gençlerimizi ve halkımızı bekleriz.</p>
-        </div>
-    </div>
-
-    <main class="page-content">
-        
+    <main>
         <div class="page-header">
             <h1>Sanat ve Beceri Atölyelerimiz</h1>
             <p>Atölyelerimizde "yaparak öğrenme" yaklaşımıyla yeteneklerinizi doğrudan pratiğe dökebilir, hayalinizdeki projeleri uzman eğitmenler eşliğinde hayata geçirebilirsiniz.</p>
@@ -202,7 +57,6 @@
                 <div class="workshop-info">
                     <h3>Model Uçak</h3>
                     <p>Havacılığa ilk adım! Aerodinamik prensipleri keşfedin ve kendi model uçaklarınızı tasarlayıp gökyüzüyle buluşturun.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -211,7 +65,6 @@
                 <div class="workshop-info">
                     <h3>Tiyatro</h3>
                     <p>Sahnede devleşin! Diksiyon, beden dili ve doğaçlama yeteneklerinizi geliştirerek sahne tozunu yutmaya hazırlanın.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -219,8 +72,7 @@
                 <img src="media/image_2.png" alt="Gitar & Keman" class="workshop-img">
                 <div class="workshop-info">
                     <h3>Gitar & Keman</h3>
-                    <p>Müziğin ritmini yakalayın. Uzman eğitmenlerimizle telli çalgıların büyülü dünyasına adım atın ve notalarla tanışın.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
+                    <p>Müziğin ritmini yakalayın. Uzman eğitmenlerimizle enstrümanların büyülü dünyasına adım atın ve notalarla tanışın.</p>
                 </div>
             </div>
 
@@ -229,7 +81,6 @@
                 <div class="workshop-info">
                     <h3>Yabancı Dil</h3>
                     <p>Dünyaya açılan kapınız. Pratik odaklı modern eğitim yöntemleriyle akıcı konuşma ve dinleme becerisi kazanın.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -238,7 +89,6 @@
                 <div class="workshop-info">
                     <h3>Green Box</h3>
                     <p>Hayal gücünüzü ekrana yansıtın. Görsel efekt, video kurgu ve prodüksiyon atölyemizde kendi içeriklerinizin yönetmeni olun.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -247,7 +97,6 @@
                 <div class="workshop-info">
                     <h3>Bağlama</h3>
                     <p>Anadolu'nun kültürel mirası. Geleneksel ezgilerimizi öğrenin ve Türk halk müziğinin köklü ritimlerine can verin.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -256,7 +105,6 @@
                 <div class="workshop-info">
                     <h3>Model Gemi</h3>
                     <p>Denizcilik tutkunlarına özel. İnce detaylar ve ahşap işçiliğiyle el becerinizi geliştirerek kendi maket gemilerinizi inşa edin.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -265,7 +113,6 @@
                 <div class="workshop-info">
                     <h3>Plastik Makyaj</h3>
                     <p>Sinema ve tiyatronun arka planındaki sırlar. Özel sahne efektleri ve makyaj hileleriyle yeni karakterler yaratma sanatını öğrenin.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
@@ -274,93 +121,15 @@
                 <div class="workshop-info">
                     <h3>Resim</h3>
                     <p>Renklerle dünyanızı çizin. Karakalem, suluboya ve yağlı boya teknikleriyle içinizdeki sanatsal yönü tuvale aktarın.</p>
-                    <a href="#" class="btn-outline">Detaylı İncele</a>
                 </div>
             </div>
 
         </div>
-
     </main>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="brand-header">
-                    <div class="brand-icon">
-                        <i class="fa-regular fa-building"></i>
-                    </div>
-                    <div class="brand-text">
-                        <h2>KÜÇÜKÇEKMECE BELEDİYESİ</h2>
-                        <h3>GENÇLİK VE SPOR MÜDÜRLÜĞÜ</h3>
-                    </div>
-                </div>
-                <p>Küçükçekmece'nin gençliği için eğitim, kültür, sanat ve teknoloji alanlarında kapsamlı hizmetler sunmaktayız.</p>
-                <div class="footer-socials">
-                    <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
+    <div id="footer-placeholder"></div>
 
-            <div class="footer-links">
-                <h4>Hızlı Erişim</h4>
-                <ul>
-                    <li><a href="kayitveiletisim.html"><i class="fa-solid fa-chevron-right"></i> Kayıt Başvurusu</a></li>
-                    <li><a href="bilisim.html"><i class="fa-solid fa-chevron-right"></i> Bilişim Sınıfı</a></li>
-                    <li><a href="etkinlikler.html"><i class="fa-solid fa-chevron-right"></i> Takvim</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links footer-contact">
-                <h4>İletişim</h4>
-                <p><i class="fa-solid fa-location-dot"></i> <span>Halkalı Merkez Mah. Zafer Cömert Sok. No: 17 Küçükçekmece / İstanbul</span></p>
-                <p><i class="fa-solid fa-phone"></i> <span>Telefon: 444 4 360 (Dahili: 8920)</span></p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            &copy; 2026 Küçükçekmece Gençlik Merkezi | Tasarım ve Geliştirme: BİLİŞİM SINIFI PROJE EKİBİ<br>
-            <a onclick="openVersionModal(event)" class="version-link">Sürüm v1.0.7 Logları (Geliştirme Geçmişi)</a>
-        </div>
-    </footer>
-
-    <div id="versionModal" class="version-modal">
-        <div class="version-modal-content">
-            <span class="close-btn" onclick="closeVersionModal()">&times;</span>
-            <h2>Proje Geliştirme Logları</h2>
-            <ul>
-                <li><strong>v1.0.7:</strong> Atölye görselleri media/ klasörüne taşındı ve sıralı isimlendirme (image_0...image_8) uygulandı. Müze Gezileri çıkarıldı.</li>
-                <li><strong>v1.0.6:</strong> Sanat ve Beceri Atölyeleri ana şablon üzerinden karta dayalı (grid) sistemle oluşturuldu.</li>
-                <li><strong>v1.0.5:</strong> Sürüm menüsü eklendi. Alt bilgi kurum adı "Müdürlük" olarak güncellendi.</li>
-                <li><strong>v1.0.4:</strong> PC/Mobil uyumluluğu ve hamburger menü entegrasyonu sağlandı.</li>
-                <li><strong>v1.0.0:</strong> İlk ana iskelet oluşturuldu.</li>
-            </ul>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("mobileMenu");
-            menu.classList.toggle("active");
-        }
-
-        function openVersionModal(e) {
-            e.preventDefault();
-            document.getElementById('versionModal').style.display = 'flex';
-        }
-
-        function closeVersionModal() {
-            document.getElementById('versionModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById('versionModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    <script src="ortak.js"></script>
 
 </body>
 </html>
